@@ -1,0 +1,11 @@
+//代理
+class Proxy implements Subject {
+    private RealSubject realSubject;
+    public void Request() {
+        if (realSubject == null) {
+            realSubject = new RealSubject();
+        }
+        preRequest();
+        realSubject.Request();
+        postRequest();
+    }
